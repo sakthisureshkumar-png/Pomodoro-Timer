@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodoro Timer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.5/dist/dotlottie-wc.js" type="module"></script>
+</head>
+<body>
+    <div class="sparkle sparkle-1"></div>
+    <div class="sparkle sparkle-2"></div>
+    <div class="sparkle sparkle-3"></div>
+    <div class="sparkle sparkle-4"></div>
+
+    <div class="clock-display">
+        <div class="current-time" id="currentTime">12:00</div>
+        <div class="period" id="currentPeriod">PM</div>
+    </div>
+
+    <div class="watcher" id="watcher">
+        <p class="watcher-text">He is watching over you, work hard!</p>
+        <dotlottie-wc src="https://lottie.host/d909ec07-78e9-4516-b721-164d83182a31/EJYCIm4AxS.lottie" autoplay loop></dotlottie-wc>
+    </div>
+
+    <!-- Audio elements -->
+    <audio id="notificationSound" preload="auto">
+        <source src="https://assets.mixkit.co/active_storage/sfx/2869/2869-preview.mp3" type="audio/mpeg">
+    </audio>
+
+    <audio id="rainSound" loop preload="auto">
+        <source src="./light_rain.wav" type="audio/wav">
+    </audio>
+
+    <!-- Rain toggle button -->
+    <button class="rain-toggle" id="rainToggle">
+        <i class="fas fa-cloud-rain"></i>
+    </button>
+
+    <div class="container">
+        <img src="images/pomodoro.svg" alt="Pomodoro timer" class="hero-image">
+        <div class="motivation" id="motivation">You're building momentum, don't stop now!</div>
+
+        <div class="timer-display">
+            <div class="time" id="minutes">25</div>
+            <div class="colon">:</div>
+            <div class="time" id="seconds">00</div>
+        </div>
+
+        <div class="controls">
+            <button class="start-btn" id="startBtn">Start</button>
+            <button class="icon-btn" id="resetBtn"><i class="fas fa-rotate-right"></i></button>
+            <button class="icon-btn" id="settingsBtn"><i class="fas fa-gear"></i></button>
+        </div>
+    </div> <div class="modal" id="settingsModal">
+        <div class="modal-content">
+            <h2>Settings</h2>
+            <div class="setting-group">
+                <label for="workTime">Work Time (minutes)</label>
+                <input type="number" id="workTime" min="1" max="60" value="25">
+            </div>
+            <div class="setting-group">
+                <label for="breakTime">Break Time (minutes)</label>
+                <input type="number" id="breakTime" min="1" max="30" value="5">
+            </div>
+            <div class="modal-buttons">
+                <button class="save-btn" id="saveBtn">Save</button>
+                <button class="cancel-btn" id="cancelBtn">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
